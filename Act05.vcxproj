@@ -143,15 +143,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\RsaCiel\AesGestion.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\RsaCiel\HashGestion.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\RsaCiel\RsaGestion.cpp" />
     <ClCompile Include="Act05.cpp" />
+    <ClCompile Include="AesGestion.cpp" />
+    <ClCompile Include="HashGestion.cpp" />
+    <ClCompile Include="RsaGestion.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\RsaCiel\AesGestion.h" />
-    <ClInclude Include="..\..\..\..\Desktop\RsaCiel\HashGestion.h" />
-    <ClInclude Include="..\..\..\..\Desktop\RsaCiel\RsaGestion.h" />
+    <ClInclude Include="AesGestion.h" />
+    <ClInclude Include="HashGestion.h" />
+    <ClInclude Include="RsaGestion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

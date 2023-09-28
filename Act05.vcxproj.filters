@@ -18,24 +18,24 @@
     <ClCompile Include="Act05.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\RsaCiel\AesGestion.cpp">
+    <ClCompile Include="HashGestion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\RsaCiel\HashGestion.cpp">
+    <ClCompile Include="RsaGestion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\RsaCiel\RsaGestion.cpp">
+    <ClCompile Include="AesGestion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\RsaCiel\AesGestion.h">
+    <ClInclude Include="AesGestion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\RsaCiel\HashGestion.h">
+    <ClInclude Include="HashGestion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\RsaCiel\RsaGestion.h">
+    <ClInclude Include="RsaGestion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
