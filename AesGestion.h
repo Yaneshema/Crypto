@@ -11,12 +11,12 @@
 class AesGestion
 {
 
-private : 
+private:
 	/**
 	 * Clef AES.
 	 */
 	CryptoPP::byte aesKey[CryptoPP::AES::DEFAULT_KEYLENGTH];
-
+	CryptoPP::byte iv[CryptoPP::AES::BLOCKSIZE];
 public:
 	AesGestion();
 	~AesGestion();
@@ -26,4 +26,3 @@ public:
 	void EncryptFileAES256(const std::string& inputFile, const std::string& outputFile);
 	void DecryptFileAES256(const std::string& inputFile, const std::string& outputFile);
 };
-
