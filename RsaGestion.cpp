@@ -26,8 +26,8 @@
  */
 RsaGestion::RsaGestion()
 {
-    std::cout << "Construction de la classe" << std::endl;
-    
+    //std::cout << "Construction de la classe" << std::endl;
+
 }
 
 /**
