@@ -2,12 +2,12 @@
 
 HashGestion::HashGestion()
 {
-	std::cout << "Constructeur par defautl du Hash" << std::endl;
+	//std::cout << "Constructeur par defautl du Hash" << std::endl;
 }
 
 HashGestion::~HashGestion()
 {
-    std::cout << "Desctructeur par defautl du hasg" << std::endl;
+    //std::cout << "Desctructeur par defautl du hasg" << std::endl;
 }
 
 

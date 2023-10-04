@@ -281,20 +281,68 @@ void RsaGestion::chiffreDansFichier(std::string donnee, std::string nomFichier)
  * \param fichierEntree chemin/nom fichier d'entree (a chiffrer)
  * \param fichierSortie chemin/nom fichier chiffre 
  */
-void RsaGestion::chiffrementFichier(const std::string fichierEntree, const std::string  fichierSortie)
+void RsaGestion::chiffrementFichier(const std::string fichierEntree, const std::string  fichierSortie, bool format64)
 {
-    AutoSeededRandomPool rng;
+    if (format64 == true)
+    {
+        std::string textAchiffre = "";
+        std::ifstream input_file(fichierEntree);
+        if (input_file.is_open())
+        {
+            std::string ligne;
+            while (std::getline(input_file, ligne))  // tant que l'on peut mettre la ligne dans "contenu"
+            {
+                textAchiffre = textAchiffre + ligne;
+            }
 
-    FileSource(fichierEntree.c_str(), true,
-        new PK_EncryptorFilter(rng, RSAES_OAEP_SHA_Encryptor(this->clefPublic), new FileSink(fichierSortie.c_str()))
-    );
+            input_file.close();
+            std::cout << textAchiffre << std::endl;
+        }
+        this->chiffreDansFichier(textAchiffre, fichierSortie);
+    }
+    else
+    {
+        AutoSeededRandomPool rng;
+
+        FileSource(fichierEntree.c_str(), true,
+            new PK_EncryptorFilter(rng, RSAES_OAEP_SHA_Encryptor(this->clefPublic), new FileSink(fichierSortie.c_str()))
+        );
+    }
+
 }
 
-void RsaGestion::dechiffrementFichier(const std::string fichierEntree, const std::string& fichierSortie)
+/**
+ * \brief Dechiffrement de fichier a fichier.
+ *
+ * \param fichierEntree fichier chiffre
+ * \param fichierSortie fichier dechiffre
+ * \param format64 selection du format true : base 64
+ */
+void RsaGestion::dechiffrementFichier(const std::string fichierEntree, const std::string fichierSortie, bool format64)
 {
-    AutoSeededRandomPool rng;
+    if (format64 == true)
+    {
+        std::string donneClaire = this->dechiffreFichier(fichierEntree);
+        std::ofstream file(fichierSortie, std::ios::binary);
+        if (file.is_open())
+        {
 
-    FileSource(fichierEntree.c_str(), true,
-        new PK_DecryptorFilter(rng, RSAES_OAEP_SHA_Decryptor(this->clefPrive), new FileSink(fichierSortie.c_str()))
-    );
+            file << donneClaire;
+            file.close();
+
+            std::cout << "Fichier enregistre avec succes." << std::endl;
+        }
+        else
+        {
+            std::cout << "Impossible d'ouvrir le fichier." << std::endl;
+        }
+    }
+    else
+    {
+        AutoSeededRandomPool rng;
+
+        FileSource(fichierEntree.c_str(), true,
+            new PK_DecryptorFilter(rng, RSAES_OAEP_SHA_Decryptor(this->clefPrive), new FileSink(fichierSortie.c_str()))
+        );
+    }
 }
